@@ -6,9 +6,9 @@ document.head.appendChild(script);
 
 window.initMap = function() {
   let lat, lon;
-  const myLatlng = { lat: 54, lng: 18 };
+  const myLatlng = { lat: 54.350, lng: 18.645 };
   const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 8,
+    zoom: 6,
     center: myLatlng,
     draggableCursor: 'crosshair'
   });
@@ -25,8 +25,12 @@ window.initMap = function() {
     
     // render selected coordinates
     const coord = document.getElementById('coord');
-    const html1 = `<p>Selected coordinates - Lat: ${lat}°, Lon: ${lon}°</p>
-                  <button id="btn">Get Weather</button>`;
+    const html1 = `
+      <p>Selected coordinates:</p>
+      <p>Lat: ${lat}°</p> 
+      <p>Lon: ${lon}°</p>
+      <button id="btn">Get Weather</button>
+      `;
     coord.innerHTML = html1;
   }); 
     
@@ -87,20 +91,22 @@ window.initMap = function() {
           // render weather data
           const showWeather = document.getElementById('weather');
           const html2 = `
-          <img src="${imgIcon}">
-          <p>Place: ${name}</>
-          <p>Temperatur: ${temp}</>
-          <p>Pressure: ${pressure}</>
-          <p>Humidity: ${humidity}</>
-          <p>Date: ${date}</>
-          <p>Time: ${time}</>
-          <p>Air Q: ${aiq}</>
+            <img src="${imgIcon}">
+            <p>Place: ${name}</>
+            <p>Temperatur: ${temp}</>
+            <p>Pressure: ${pressure}</>
+            <p>Humidity: ${humidity}</>
+            <p>Date: ${date}</>
+            <p>Time: ${time}</>
+            <p>Air Q: ${aiq}</>
           `
           showWeather.innerHTML += html2;
         }
     } catch {
+        alert('Dupa! Try again');
         console.log('Something went wrong');
         console.error(error);
+        
     }
   });
 };
