@@ -7,15 +7,15 @@
     <script src="app.js"></script>
   </head>
   <body>
-    <div id="map"></div>
-    <p id="coord"></p>
-    <button id="btn">Get Weather</button>
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <!-- <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAH9A5stmnZK6MnwdwgysjQhk_8N1pKlLQ&callback=initMap&v=weekly"
-      async
-    ></script> -->
-    <table class="table">
+    <div id="map_container">
+      <div id="map"></div>
+    </div>
+    <div id="coord">Click on map to select place</div>
+    <div id="weather"></div>
+    <!-- <p id="coord"></p>
+    <button id="btn">Get Weather</button> -->
+   
+    <!-- <table class="table">
       <tr>
           <th>City</th>
           <th>Now</th>
@@ -36,7 +36,7 @@
           <td></td>
           <td></td>
       </tr>
-  </table>
+  </table> -->
    
   </body>
 </html>

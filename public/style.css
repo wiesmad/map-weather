@@ -1,40 +1,21 @@
-/* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-       #map {
-        height: 50%;
-      }
-      
-      /* Optional: Makes the sample page fill the window. */
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-      .table {
-        margin-top: 1em;
-        table-layout: fixed;
-        overflow: auto;
-        font-size: .8rem;
-    }
-    
-    .table th,
-    .table td {
-        text-align: center;
-        padding: 0 5px;
-    }
-    
-    .table td {
-        background: yellowgreen;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-    
-    img {
-        width: 50%;
-    }
+#map_container {
+  height: 50vh;
+}
+
+#map {
+  height: 100%;
+}
+      
+/* img {
+  width: 50px;
+} */
 
   
       
