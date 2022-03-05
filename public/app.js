@@ -12,6 +12,7 @@ window.initMap = function() {
     center: myLatlng,
     draggableCursor: 'crosshair'
   });
+
   // get coordinates on click
   map.addListener("click", (ev) => {
     new google.maps.Marker({
@@ -29,11 +30,11 @@ window.initMap = function() {
       <p>Selected coordinates:</p>
       <p>Lat: ${lat}°</p> 
       <p>Lon: ${lon}°</p>
-      <button id="btn">Get Weather</button>
+      <button id="btn">Find Weather</button>
       `;
     coord.innerHTML = html1;
   }); 
-    
+    // post request
     document.addEventListener('click', async event => {
       try {
         if (event.target.matches('#btn')) {
@@ -89,18 +90,21 @@ window.initMap = function() {
           }
 
           // render weather data
-          const showWeather = document.getElementById('weather');
+          const showWeather = document.getElementById('weather_cards');
           const html2 = `
-            <img src="${imgIcon}">
-            <p>Place: ${name}</>
-            <p>Temperatur: ${temp}</>
-            <p>Pressure: ${pressure}</>
-            <p>Humidity: ${humidity}</>
-            <p>Date: ${date}</>
-            <p>Time: ${time}</>
-            <p>Air Q: ${aiq}</>
+            <div id=card>
+              <img src="${imgIcon}">
+              <p>Place: <span>${name}</span></>
+              <p>Temperature: <span>${temp}</span></>
+              <p>Pressure: <span>${pressure}</span></>
+              <p>Humidity: <span>${humidity}</span></>
+              <p>Date: <span>${date}</span></>
+              <p>Time: <span>${time}</span></>
+              <p>Air Q: <span>${aiq}</span></>
+            </div>
           `
           showWeather.innerHTML += html2;
+          window.scrollTo(0,document.body.scrollHeight); // sroll to bottom
         }
     } catch {
         alert('Dupa! Try again');
@@ -109,6 +113,27 @@ window.initMap = function() {
         
     }
   });
+
+  let btnScroll = document.querySelector(".scroll_icon");
+  btnScroll.addEventListener('click', ()=>{
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+    });
+  });
+
+  document.addEventListener('scroll', ()=>{  
+  const topScrollBtn = document.querySelector('.scroll_top_btn');
+  const revealPoint = document.querySelector('#card:first-of-type');
+  const top = revealPoint.getBoundingClientRect().top;
+  const height = window.innerHeight;
+  if(top + 200 < height) {
+      topScrollBtn.style.display = 'block';
+  } else {
+      topScrollBtn.style.display = 'none';
+  }
+  }, false);
 };
 
 

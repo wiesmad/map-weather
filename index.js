@@ -18,7 +18,7 @@ app.post('/api', async (request, response) => {
     const weather_url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${api_key}`; 
     const weather_resp = await fetch(weather_url);
     const weather_data = await weather_resp.json();
-
+    
     const aq_url = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${api_key}`; 
     const aq_resp = await fetch(aq_url);
     const aq_data = await aq_resp.json();

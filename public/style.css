@@ -13,7 +13,7 @@ body {
 }
 
 .map_container {
-  height: 50vh;
+  height: 40vh;
 }
 
 #map {
@@ -26,28 +26,80 @@ body {
 }
 
 #coord {
+  width: 95%;
   display: flex;
   flex-direction: column;
-  margin: 1em auto;
+  text-align: center;
+  margin: 1em auto 0 auto;
   padding: .5em 1em;
-  background: rgba(29, 180, 190, .5);
+  background: rgba(170, 218, 255, 1);
   border-radius: 5px;
-  color: #ea00ff;
+  color: rgba(0, 0, 0, .8);
 }
 
-#weather {
+#card {
+  width: 95%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 1em auto;
-  padding: .5em 1em;
-  background: rgba(29, 180, 190, .5);
+  background: rgba(170, 218, 255, 1);
   border-radius: 5px;
-  color: #ea00ff;
+  color: rgba(0, 0, 0, .8);
 }
 
-img {
+#card p {
+  padding: .3em;
+}
+
+#card span {
+  font-weight: 700;
+}
+
+#cards img {
   width: 50px;
 }
 
+#btn {
+  width: 5rem;
+  height: 5rem;
+  margin: 1em;
+  border-radius: 50%;
+  align-self: center;
+  border: 4px solid rgba(223, 78, 60, .5);
+  outline: none;
+  font-weight: 700;
+  background: rgba(245, 245, 245, 1);
+  color: rgba(0, 0, 0, .8);
+  cursor: pointer;
+}
+
+.scroll_top_btn {
+  display: none;
+  width: 2.6rem;
+  height: 2.6rem;
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  background: rgba(245, 245, 245, 1);
+  box-shadow: 0 5px 5px rgba(128, 128, 128, .5);
+  padding: .5em;
+  transition: .3s;
+}
+
+.scroll_top_btn:active {
+  background-color: var(grey);
+  transform: translateY(-4px);
+}
+
+.scroll_icon {
+  width: 100%;
+  height: 100%;
+  opacity: .5;
+}
   
       
