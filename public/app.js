@@ -28,8 +28,8 @@ window.initMap = function() {
     const coord = document.getElementById('coord');
     const html1 = `
       <p>Selected coordinates:</p>
-      <p>Lat: ${lat}°</p> 
-      <p>Lon: ${lon}°</p>
+      <p>Lat: <span>${lat}°</span></p> 
+      <p>Lon: <span>${lon}°</span></p>
       <button id="btn">Find Weather</button>
       `;
     coord.innerHTML = html1;
@@ -101,10 +101,15 @@ window.initMap = function() {
               <p>Date: <span>${date}</span></>
               <p>Time: <span>${time}</span></>
               <p>Air Q: <span>${aiq}</span></>
+              <div class="close_btn">
+              <img class="close_icon" src="close.svg" alt="close card">
+              </div>
             </div>
           `
           showWeather.innerHTML += html2;
-          window.scrollTo(0,document.body.scrollHeight); // sroll to bottom
+          
+          // sroll to bottom
+          window.scrollTo(0,document.body.scrollHeight); 
         }
     } catch {
         alert('Dupa! Try again');
@@ -114,6 +119,7 @@ window.initMap = function() {
     }
   });
 
+  // scroll to top
   let btnScroll = document.querySelector(".scroll_icon");
   btnScroll.addEventListener('click', ()=>{
     window.scrollTo({
@@ -123,17 +129,28 @@ window.initMap = function() {
     });
   });
 
+  // show scroll button
   document.addEventListener('scroll', ()=>{  
-  const topScrollBtn = document.querySelector('.scroll_top_btn');
-  const revealPoint = document.querySelector('#card:first-of-type');
-  const top = revealPoint.getBoundingClientRect().top;
-  const height = window.innerHeight;
-  if(top + 200 < height) {
-      topScrollBtn.style.display = 'block';
-  } else {
-      topScrollBtn.style.display = 'none';
-  }
+    const topScrollBtn = document.querySelector('.scroll_top_btn');
+    const revealPoint = document.querySelector('#card:first-of-type');
+    if (revealPoint === null) {
+      return;
+    }
+    const top = revealPoint.getBoundingClientRect().top; 
+    const height = window.innerHeight;
+    if(top + 200 < height) {
+        topScrollBtn.style.display = 'block';
+    } else {
+        topScrollBtn.style.display = 'none';
+    }
   }, false);
+
+  // remove card
+  document.addEventListener('click', event => {
+    if (event.target.matches('.close_icon')) {
+      event.target.closest('#card').remove();
+    }
+  })
 };
 
 
