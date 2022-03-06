@@ -115,7 +115,6 @@ window.initMap = function() {
         alert('Dupa! Try again');
         console.log('Something went wrong');
         console.error(error);
-        
     }
   });
 
