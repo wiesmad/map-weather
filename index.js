@@ -7,9 +7,12 @@ const app = express();
 // set up server
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log('listening at 3000'));
-app.use(express.static('public')); // serving 'public/index.html'
-app.use(express.json({ limit: '1mb' }));
 
+// serving 'public/index.html'
+app.use(express.static('public')); 
+app.use(express.json({ limit: '10mb' }));
+
+// handling post request
 app.post('/api', async (request, response) => {
     console.log(request.body)
     const lat = request.body.lat;

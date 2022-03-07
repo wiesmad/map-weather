@@ -4,6 +4,7 @@ script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAH9A5stmnZK6Mnwd
 script.async = true;
 document.head.appendChild(script);
 
+// set up map
 window.initMap = function() {
   let lat, lon;
   const myLatlng = { lat: 54.350, lng: 18.645 };
@@ -132,12 +133,12 @@ window.initMap = function() {
   document.addEventListener('scroll', ()=>{  
     const topScrollBtn = document.querySelector('.scroll_top_btn');
     const revealPoint = document.querySelector('#card:first-of-type');
-    if (revealPoint === null) {
-      return;
-    }
+    // if (revealPoint === null) {
+    //   revealPoint;
+    // }
     const top = revealPoint.getBoundingClientRect().top; 
     const height = window.innerHeight;
-    if(top + 200 < height) {
+    if(top + 250 < height) {
         topScrollBtn.style.display = 'block';
     } else {
         topScrollBtn.style.display = 'none';
