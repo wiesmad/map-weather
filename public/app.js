@@ -1,6 +1,7 @@
 // Create the script tag
 const script = document.createElement('script');
-script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAH9A5stmnZK6MnwdwgysjQhk_8N1pKlLQ&callback=initMap`;
+ const api_key = process.env.weather_api_key;
+script.src = `https://maps.googleapis.com/maps/api/js?key=${api_key}&callback=initMap`;
 script.async = true;
 document.head.appendChild(script);
 
